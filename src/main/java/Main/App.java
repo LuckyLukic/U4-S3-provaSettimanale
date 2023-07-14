@@ -28,16 +28,13 @@ public class App {
 	Set<ModelloBase> catalogo = new HashSet <>();	
 	
 	catalogo.add(new Libro("Titolo1", 1992, 328, "Autore1", "Fantasy"));
-	catalogo.add(new Libro("Titolo2", 2000, 400, "Autore1", "Fantasy"));
+	catalogo.add(new Libro("Titolo2", 2000, 400, "Autore2", "Fantasy"));
 	catalogo.add(new Libro("Titolo3", 2021, 289, "Autore1", "Fantasy"));
 	catalogo.add(new Rivista("Titolo4", 1992, 40, Periodicita.MENSILE));
 	catalogo.add(new Rivista("Titolo5", 1992, 37, Periodicita.SEMESTRALE));
 	catalogo.add(new Rivista("Titolo6", 1992, 24, Periodicita.SETTIMANALE));
 	
 	System.out.println(catalogo);
-	
-	
-	
 	
 	
 	catalogo.forEach( elemento -> {
@@ -85,17 +82,13 @@ public class App {
 			System.out.println("Inserisci l'ISBN dell'elemento");
 			long isbn = Long.parseLong(scanner.nextLine());
 			
-			System.out.println(sd.findById(isbn));
+			sd.findById(isbn);
 			
 		
 			
 		} catch (NumberFormatException e) {
 			e.printStackTrace();
-		}
-		
-		
-		
-		
+		}	
 		
 	}
 	
@@ -113,16 +106,22 @@ public class App {
 	if (risposta3.equals("y")) {
 		
 		try {
-			System.out.println("Inserisci l'ISBN dell'elemento");
+			System.out.println("Inserisci l'anno dell'elemento");
 			int anno = Integer.parseInt(scanner.nextLine());
 			
-			System.out.println(sd.findByYear(anno));
+			sd.findByYear(anno);
 				
 		} catch (NumberFormatException e) {
 			e.printStackTrace();
 		}
 	
 	}	
+	
+	
+	System.out.println(" ");
+	System.out.println("**********************");
+	System.out.println(" ");
+	
 	
 	System.out.println("vuoi cercare un elemento per autore? premi Y per si, N per no!");
 	String risposta4 = scanner.nextLine();
@@ -134,16 +133,36 @@ public class App {
 	if (risposta4.equals("y")) {
 		
 		try {
-			System.out.println("Inserisci l'ISBN dell'elemento");
+			System.out.println("Inserisci l'autore dell'elemento");
 			String autore =scanner.nextLine();
 			
-			System.out.println(sd.findByAuthor(autore));
+		System.out.println(sd.findByAuthor(autore));
 				
 		} catch (NumberFormatException e) {
 			e.printStackTrace();
 		}
 	
+	}	
+	
 
+	System.out.println("vuoi cercare un elemento per titolo? premi Y per si, N per no!");
+	String risposta5 = scanner.nextLine();
+	
+	System.out.println(" ");
+	System.out.println("**********************");
+	System.out.println(" ");
+	
+	if (risposta5.equals("y")) {
+		
+		try {
+			System.out.println("Inserisci il titolo");
+			String titolo =scanner.nextLine();
+			
+		System.out.println(sd.findByTitle(titolo));
+				
+		} catch (NumberFormatException e) {
+			e.printStackTrace();
+		}
 	
 	}	
 	
