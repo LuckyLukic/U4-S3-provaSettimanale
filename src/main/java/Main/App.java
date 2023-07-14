@@ -19,6 +19,8 @@ public class App {
 	private static EntityManagerFactory emf = JpaUtil.getEntityManagerFactory();
 	
 	public static void main(String[] args) {
+		
+		Scanner scanner = new Scanner(System.in);
 
 		EntityManager em = emf.createEntityManager();
 		LibroRivistaDao sd = new LibroRivistaDao(em);
@@ -48,7 +50,12 @@ public class App {
 	System.out.println("**********************");
 	System.out.println(" ");
 	
-	try (Scanner scanner = new Scanner(System.in)) {
+	System.out.println("vuoi eliminare un elemento? premi Y per si, N per no!");
+	String risposta1 = scanner.nextLine();
+	
+	if (risposta1.equals("y")) {
+	
+	try {
 		System.out.println("Inserisci l'ISBN dell'elemento che vuoi rimuovere");
 		long isbn = Long.parseLong(scanner.nextLine());
 		
@@ -58,15 +65,46 @@ public class App {
 	} catch (NumberFormatException e) {
 		e.printStackTrace();
 	}
+	}
 	
 	System.out.println(" ");
 	System.out.println("**********************");
 	System.out.println(" ");
+	
+	
+	System.out.println("vuoi cercare un elemento? premi Y per si, N per no!");
+	String risposta2 = scanner.nextLine();
+	
+	System.out.println(" ");
+	System.out.println("**********************");
+	System.out.println(" ");
+	
+	if (risposta2.equals("y")) {
+		
+		try {
+			System.out.println("Inserisci l'ISBN dell'elemento");
+			long isbn = Long.parseLong(scanner.nextLine());
+			
+			System.out.println(sd.findById(isbn));
+			
+		
+			
+		} catch (NumberFormatException e) {
+			e.printStackTrace();
+		}
+		
+		
+		
 		
 		
 	}
+	
+	System.out.println(" ");
+	System.out.println("**********************");
+	System.out.println(" ");	
+	
 
 	
-	
+	}	
 
 }
