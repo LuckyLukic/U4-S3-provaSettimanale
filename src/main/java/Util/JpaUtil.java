@@ -11,7 +11,7 @@ public class JpaUtil {
 		static {
 			try {
 				entityManagerFactory = Persistence
-						.createEntityManagerFactory("U4-S3-D4");
+						.createEntityManagerFactory("U4-S3-provaSettimanale");
 			} catch (Throwable ex) {
 				System.err.println("Initial EntityManagerFactory creation failed."
 						+ ex);

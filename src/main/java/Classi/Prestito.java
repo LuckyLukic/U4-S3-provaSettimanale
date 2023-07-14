@@ -18,6 +18,7 @@ public class Prestito {
 		this.inizioPrestito = inizioPrestito;
 		this.ritornoPrevisto = ritornoPrevisto;
 		this.finePrestito = finePrestito;
+		
 	}
 	
 	

@@ -1,12 +1,30 @@
 package Classi;
 
+
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+
 import Utilities.Periodicita;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+@Entity
+@Getter
+@Setter
+@NoArgsConstructor
 
 public class Rivista extends ModelloBase{
 	
-	private Enum<Periodicita> periodicita;
+	@Enumerated(EnumType.STRING)
 	
-	public Rivista ( String _titolo, int _annoPublicazione, int _numeroPagine, Enum<Periodicita> _periodicita) {
+	@Column(name = "PERIODICITA")
+	private Periodicita periodicita;
+	
+	public Rivista ( String _titolo, int _annoPublicazione, int _numeroPagine, Periodicita _periodicita) {
 		
 		super( _titolo, _annoPublicazione, _numeroPagine);
 		
@@ -18,7 +36,7 @@ public class Rivista extends ModelloBase{
 		return periodicita;
 	}
 
-	public void setPeriodicita(Enum<Periodicita> periodicita) {
+	public void setPeriodicita(Periodicita periodicita) {
 		this.periodicita = periodicita;
 	}
 
