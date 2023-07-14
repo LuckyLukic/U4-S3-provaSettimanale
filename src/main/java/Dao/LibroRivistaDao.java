@@ -49,7 +49,20 @@ public class LibroRivistaDao {
 		ModelloBase found = em.find(ModelloBase.class, isbn);
 		return found;
 	}
-        
+    
+    public ModelloBase findByYear(long anno) {
+		ModelloBase found = em.find(ModelloBase.class, anno);
+		
+		return found;
+		
+    
+    }   
+    
+    public ModelloBase findByAuthor(String autore) {
+		ModelloBase found = em.find(ModelloBase.class, autore);
+		return found;
+    
+    }   
  
 
 }

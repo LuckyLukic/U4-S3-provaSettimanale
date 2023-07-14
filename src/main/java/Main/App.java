@@ -103,8 +103,50 @@ public class App {
 	System.out.println("**********************");
 	System.out.println(" ");	
 	
+	System.out.println("vuoi cercare un elemento per anno? premi Y per si, N per no!");
+	String risposta3 = scanner.nextLine();
+	
+	System.out.println(" ");
+	System.out.println("**********************");
+	System.out.println(" ");
+	
+	if (risposta3.equals("y")) {
+		
+		try {
+			System.out.println("Inserisci l'ISBN dell'elemento");
+			int anno = Integer.parseInt(scanner.nextLine());
+			
+			System.out.println(sd.findByYear(anno));
+				
+		} catch (NumberFormatException e) {
+			e.printStackTrace();
+		}
+	
+	}	
+	
+	System.out.println("vuoi cercare un elemento per autore? premi Y per si, N per no!");
+	String risposta4 = scanner.nextLine();
+	
+	System.out.println(" ");
+	System.out.println("**********************");
+	System.out.println(" ");
+	
+	if (risposta4.equals("y")) {
+		
+		try {
+			System.out.println("Inserisci l'ISBN dell'elemento");
+			String autore =scanner.nextLine();
+			
+			System.out.println(sd.findByAuthor(autore));
+				
+		} catch (NumberFormatException e) {
+			e.printStackTrace();
+		}
+	
 
 	
 	}	
+	
+	}
 
 }
