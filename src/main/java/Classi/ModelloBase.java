@@ -8,6 +8,8 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import lombok.Getter;
@@ -28,14 +30,18 @@ public abstract class ModelloBase {
 		Random random = new Random();
 		
 		@Id
-		@Column(name = "ISBN")
+		@Column(name = "isbn")
 		private long randomisbn = 1_000_000_000l + new Random().nextLong(9_000_000_000l);
-		@Column(name = "TITOLO")
+		@Column(name = "titolo")
 		private String titolo;
-		@Column(name = "PUBBLICAZIONE")
+		@Column(name = "pubblicazione")
 		private int annoPubblicazione;
-		@Column(name = "PAGINE")
+		@Column(name = "pagine")
 		private int numeroPagine;
+		
+		@ManyToOne
+		@JoinColumn(name = "tessera", referencedColumnName = "id")
+		private Prestito prestito;
 		
 		public ModelloBase (String _titolo, int _annoPubblicazione, int _numeroPagine) {
 			

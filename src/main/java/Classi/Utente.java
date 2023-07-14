@@ -1,11 +1,14 @@
 package Classi;
 
 import java.time.LocalDate;
+import java.util.List;
+
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
@@ -24,17 +27,21 @@ public class Utente {
 	
 	String nome;
 	String cognome;
-	LocalDate dataNascita;
+	LocalDate data_nascita;
 	@Id
 	@SequenceGenerator(name = "My_New_Sequence", sequenceName = "My_New_Sequence", allocationSize = 1)
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "My_New_Sequence")
-	long numeroTessera;
+	long numero_tessera;
 	
-	public Utente(String nome, String cognome, LocalDate dataNascita, long numeroTessera) {
+	@OneToMany(mappedBy = "utente")
+	private List<Prestito> prestito;
+	
+	
+	public Utente(String nome, String cognome, LocalDate data_nascita, long numero_tessera) {
 		this.nome = nome;
 		this.cognome = cognome;
-		this.dataNascita = dataNascita;
-		this.numeroTessera = numeroTessera;
+		this.data_nascita = data_nascita;
+		this.numero_tessera = numero_tessera;
 	}
 	
 	

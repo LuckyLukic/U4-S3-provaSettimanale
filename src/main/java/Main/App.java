@@ -34,6 +34,10 @@ public class App {
 	catalogo.add(new Rivista("Titolo5", 1992, 37, Periodicita.SEMESTRALE));
 	catalogo.add(new Rivista("Titolo6", 1992, 24, Periodicita.SETTIMANALE));
 	
+	System.out.println(" ");
+	System.out.println("**********************");
+	System.out.println(" ");
+	
 	System.out.println(catalogo);
 	
 	
